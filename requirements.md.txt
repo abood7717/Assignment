@@ -1,0 +1,11 @@
+# Requirements
+
+## Functional Requirements
+
+1. The system shall collect and transmit real-time health data (heart rate, oxygen level, temperature) from wearable sensors to a cloud database.
+2. The system shall allow authorized doctors to view a patient’s health data through a secure dashboard.
+
+## Non-Functional Requirements
+
+1. The system shall have an uptime of 99.9% to ensure continuous health monitoring availability.
+2. The system shall encrypt all data transmissions using TLS to maintain confidentiality and integrity.

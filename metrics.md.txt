@@ -1,0 +1,7 @@
+# Reliability Metrics
+
+## 1. Mean Time Between Failures (MTBF)
+This metric helps measure the average time between system breakdowns. For an IoT healthcare system, maximizing MTBF ensures consistent monitoring and reduces service interruptions that could impact patient care.
+
+## 2. System Availability
+This metric calculates the percentage of time the system is operational. With a target of 99.9%, high availability ensures that patient data is accessible to caregivers when needed, which is critical in emergencies.

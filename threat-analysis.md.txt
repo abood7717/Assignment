@@ -1,0 +1,81 @@
+# Threat Analysis Summary
+
+This document outlines key threats and mitigations for each component and data flow in the IoT-based Healthcare Monitoring System using the STRIDE model.
+
+---
+
+## 1. IoT Device
+
+**Threat (Tampering):**  
+An attacker may modify health data before it's transmitted to the cloud.  
+**Mitigation:**  
+Use TLS 1.3 and digital signatures to ensure data integrity.
+
+**Threat (Denial of Service):**  
+Attackers may flood the device with requests to prevent data upload.  
+**Mitigation:**  
+Implement rate limiting and a watchdog timer.
+
+---
+
+## 2. Patient
+
+**Threat (Information Disclosure):**  
+Sensitive vitals may be intercepted during transmission.  
+**Mitigation:**  
+Ensure encrypted communication using TLS 1.3.
+
+---
+
+## 3. Doctor
+
+**Threat (Spoofing):**  
+An attacker may impersonate a doctor to access private data.  
+**Mitigation:**  
+Use Multi-Factor Authentication and session validation.
+
+---
+
+## 4. Cloud Database
+
+**Threat (Information Disclosure):**  
+Unauthorized access to stored patient data.  
+**Mitigation:**  
+Encrypt data at rest using AES-256 and enforce access control.
+
+**Threat (Repudiation):**  
+Malicious users may deny modifying or accessing data.  
+**Mitigation:**  
+Implement full audit logging and non-repudiation tokens.
+
+---
+
+## 5. Doctor Dashboard
+
+**Threat (Elevation of Privilege):**  
+A regular user may gain admin access.  
+**Mitigation:**  
+Use strict RBAC and validate all user roles.
+
+---
+
+## 6. Data Flow: IoT Device → Cloud DB
+
+**Threat (Tampering in Transit):**  
+Data may be modified during transfer.  
+**Mitigation:**  
+Encrypt communication with TLS and verify message integrity.
+
+---
+
+## 7. Data Flow: Doctor → Dashboard
+
+**Threat (Spoofing):**  
+Attacker could use stolen credentials.  
+**Mitigation:**  
+Enforce OAuth 2.0, MFA, and session timeout.
+
+---
+
+**Conclusion:**  
+Although the MTMT tool didn’t auto-generate threats, all core STRIDE threats were identified manually and appropriate mitigations were proposed. The threat model diagram reflects key system components and data flows and is included as `threat-model.pdf`.
